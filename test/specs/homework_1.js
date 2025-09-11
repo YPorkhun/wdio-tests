@@ -14,12 +14,39 @@ describe('Home Task #1', () => {
 
     });
 
-     it('should check text on docs/api page', async () => {
+     xit('should check text on docs/api page', async () => {
 
         await browser.url('https://webdriver.io/docs/api')
 
         await expect(await $('h1').getText()).toEqual('Introduction');
 
+    });
+
+        xit('should check attribute', async () => {
+
+        await browser.url('https://webdriver.io/docs/api')
+
+        const element = await $('a')
+        const attr = await element.getAttribute('href')
+        console.log("Attribute of element is: " + attr)
+
+    });
+
+       xit('should click on search and fill in it', async () => {
+
+        await browser.url('https://webdriver.io/docs/api')
+
+        let searchField = await $('.DocSearch-Button-Placeholder')
+        await searchField.click()
+        
+        let inputField = await $('.DocSearch-Input')
+        await inputField.addValue("all is done")
+        await browser.pause(4000)
+
+        let resetButton = await $('.DocSearch-Reset')
+        await resetButton.click()
+        await browser.pause(4000)
+   
     })
 
 });
