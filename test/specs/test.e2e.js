@@ -1,4 +1,4 @@
-import { expect } from "@wdio/globals";
+import { browser, expect } from "@wdio/globals";
 
 describe('WebDriver main page', () => {
 
@@ -10,8 +10,7 @@ describe('WebDriver main page', () => {
 
         await expect(browser).toHaveTitle("WebdriverIO · Next-gen browser and mobile automation test framework for Node.js | WebdriverIO")
 
-    });
-
+});
     xit('should show addValue command', async () => {
         await browser.url('https://the-internet.herokuapp.com/login')
 
@@ -24,8 +23,7 @@ describe('WebDriver main page', () => {
 
         await expect(input).toHaveValue("hello123")
 
-    });
-
+});
     xit('should show setValue command', async () => {
 
         await browser.url('https://the-internet.herokuapp.com/login')
@@ -59,7 +57,6 @@ describe('WebDriver main page', () => {
         await browser.pause(200)
 
 });
-
     xit('should show getAttribute command', async () => {
             
         await browser.url('https://dou.ua/search')
@@ -74,7 +71,6 @@ describe('WebDriver main page', () => {
         console.log("Value attribute is : " + attr) //shouls be 'Cat'
 
 });
-
     xit('should show getLocation command', async () => {
             
         await browser.url('https://dou.ua')
@@ -88,7 +84,6 @@ describe('WebDriver main page', () => {
 
 
 });
-
     xit('should show getText command', async () => {
             
         await browser.url('https://webdriver.io');
@@ -98,28 +93,24 @@ describe('WebDriver main page', () => {
 
 
 });
-
     xit('check if button is clickable', async () => {
             
         await browser.url('https://webdriver.io');
 
         const blogButton  = await $('.button[href="/docs/gettingstarted"]')
-        console.log("Check if button is clickable" + await blogButton.isClickable)
+        console.log("Check if button is clickable" + await blogButton.isClickable())
 
 
 });
-
     xit('check if button is displayed', async () => {
             
         await browser.url('https://webdriver.io');
 
         const blogButton  = await $('.button[href="/docs/gettingstarted"]')
-        console.log("Check if button is displayed" + await blogButton.isDisplayed)
+        console.log("Check if button is displayed" + await blogButton.isDisplayed())
 
 
 });
-
-
     xit('check if button is visible', async () => {
             
         await browser.url('https://webdriver.io');
@@ -129,18 +120,43 @@ describe('WebDriver main page', () => {
 
 
 });
-
-  
     xit('check if button is visible in footer', async () => {
             
         await browser.url('https://webdriver.io');
 
         const footer  = await $('.footer__link-item[href="/docs/gettingstarted"]')
-        console.log("Check if button is visible" + await footer.isDisplayedInViewport)
+        console.log("Check if button is visible" + await footer.isDisplayedInViewport())
 
 });
+    xit('check if element is enabled', async () => {
+            
+        await browser.url('https://webdriver.io');
 
+        const blogButton  = await $('.button[href="/docs/gettingstarted"]')
+        console.log("Check if button is enabled" + await blogButton.isEnabled())
 
+});
+    xit('check if element is focused', async () => {
+            
+        await browser.url('https://webdriver.io');
 
+        const blogButton  = await $('.button[href="/docs/gettingstarted"]')
+        console.log("Check if button is focused before click: " + await blogButton.isFocused()); //false
+
+        await browser.pause(2000)
+        await blogButton.click();
+        console.log("Check if button is focused after click: " + await blogButton.isFocused()); //true
+        await browser.pause(2000)
+
+});
+    xit('should scroll into specific element', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        const getStartedLink  = await $('.footer__link-item[href="/docs/gettingstarted"]')
+        await browser.pause(2000)
+        await getStartedLink.scrollIntoView();
+        await browser.pause(2000)
+}); 
 
 });
