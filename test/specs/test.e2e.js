@@ -116,7 +116,7 @@ describe('WebDriver main page', () => {
         await browser.url('https://webdriver.io');
 
         const blogButton  = await $('.button[href="/docs/gettingstarted"]')
-        console.log("Check if button is visible" + await blogButton.isDisplayedInViewport)
+        console.log("Check if button is visible" + await blogButton.isDisplayedInViewport())
 
 
 });
