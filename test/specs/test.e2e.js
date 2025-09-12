@@ -26,7 +26,7 @@ describe('WebDriver main page', () => {
 
     });
 
-     xit('should show setValue command', async () => {
+    xit('should show setValue command', async () => {
 
         await browser.url('https://the-internet.herokuapp.com/login')
 
@@ -97,6 +97,50 @@ describe('WebDriver main page', () => {
         console.log("Subtitle text is : " + subtitle.getText())
 
 
-})
+});
+
+    xit('check if button is clickable', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        const blogButton  = await $('.button[href="/docs/gettingstarted"]')
+        console.log("Check if button is clickable" + await blogButton.isClickable)
+
+
+});
+
+    xit('check if button is displayed', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        const blogButton  = await $('.button[href="/docs/gettingstarted"]')
+        console.log("Check if button is displayed" + await blogButton.isDisplayed)
+
+
+});
+
+
+    xit('check if button is visible', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        const blogButton  = await $('.button[href="/docs/gettingstarted"]')
+        console.log("Check if button is visible" + await blogButton.isDisplayedInViewport)
+
+
+});
+
+  
+    xit('check if button is visible in footer', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        const footer  = await $('.footer__link-item[href="/docs/gettingstarted"]')
+        console.log("Check if button is visible" + await footer.isDisplayedInViewport)
+
+});
+
+
+
 
 });
