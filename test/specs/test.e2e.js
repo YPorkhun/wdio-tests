@@ -149,7 +149,7 @@ describe('WebDriver main page', () => {
         await browser.pause(2000)
 
 });
-    xit('should scroll into specific element', async () => {
+    xit('should scroll into specific element and make screenshot', async () => {
             
         await browser.url('https://webdriver.io');
 
@@ -157,6 +157,32 @@ describe('WebDriver main page', () => {
         await browser.pause(2000)
         await getStartedLink.scrollIntoView();
         await browser.pause(2000)
+        await browser.saveScreenshot('ScreenshotFromTest.png');
 }); 
+
+    it('switching between windows', async () => {
+            
+        await browser.url('https://webdriver.io');
+
+        await browser.newWindow('https://google.com');
+        await browser.pause(2000);
+
+        await browser.switchWindow('https://webdriver.io');
+        await browser.pause(2000);
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
