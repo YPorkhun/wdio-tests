@@ -159,8 +159,7 @@ describe('WebDriver main page', () => {
         await browser.pause(2000)
         await browser.saveScreenshot('ScreenshotFromTest.png');
 }); 
-
-    it('switching between windows', async () => {
+    xit('switching between windows', async () => {
             
         await browser.url('https://webdriver.io');
 
@@ -171,18 +170,25 @@ describe('WebDriver main page', () => {
         await browser.pause(2000);
     
 });
+    xit('should show waitUntil function', async () => {
+            
+        await browser.url('https://webdriver.io');
 
+        await browser.waitUntil( async () => {
+            return $('.button[href="/docs/gettingstarted').isDisplayed();
+        }, 3000, "Button is not displayed")
 
+});
+    xit('should show getHTML method', async () => {
+            
+        await browser.url('https://webdriver.io');
 
+        const outTag = await $('.dropdown__menu').getHTML();
+        console.log("It shows all tag around dropdown menu tag : " + outTag);
 
-
-
-
-
-
-
-
-
+        const insideTag = await $('.dropdown__menu').getHTML(false);
+        console.log("It shows all tag inside dropdown menu tag : " + insideTag);
 
 
 });
+})
