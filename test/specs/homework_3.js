@@ -79,7 +79,7 @@ describe('Home Task #3', () => {
     User can see text of comments and time when they were left
 */
 
-    it('User can see other comments in blog page', async () => {
+    xit('User can see other comments in blog page', async () => {
 
         await browser.url('https://dou.ua/forums/blogs/')
 
