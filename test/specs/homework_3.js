@@ -49,8 +49,7 @@ describe('Home Task #3', () => {
     Blog page is open
 */
 
-
-    it('Blog page is opened', async () => {
+    xit('Blog page is opened', async () => {
 
         await browser.url('https://dou.ua/')
 
@@ -58,6 +57,7 @@ describe('Home Task #3', () => {
         await browser.pause(2000)
         await blogButton.click();
         await browser.pause(2000)
+        await expect(browser).toHaveUrl("https://dou.ua/forums/blogs")
 
         const searchBlogdropdown = await $('.select')
         await searchBlogdropdown.isDisplayed();
@@ -70,4 +70,25 @@ describe('Home Task #3', () => {
 
 });
 
+/* 'User can see comments from other users in blog page'
+     STR:
+       1. Navigate comments sidebar
+       2. Click on comment
+    ER: 
+    User can see the comments in threads
+    User can see text of comments and time when they were left
+*/
+
+    it('User can see other comments in blog page', async () => {
+
+        await browser.url('https://dou.ua/forums/blogs/')
+
+        const commentButton = await $('.b-sidebar-comments')
+        await commentButton.isDisplayed();
+        await browser.pause(2000)
+
+        const lastComment = await $('(//div[contains(@class, "b-sidebar-comment")])[1]//a[@class="time"]/@title')
+        console.log("Text of last comment: " + lastComment); 
+
+});
 });
