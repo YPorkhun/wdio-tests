@@ -31,7 +31,7 @@ describe('Home Task #5', () => {
         
     });
 
-    xit('Navigate new Page, get text of header and use checkbox filter', async () => {
+    xit('Navigate new page, get text of header and use checkbox filter', async () => {
 
         await browser.url('https://store.ababahalamaha.com.ua/')
 
@@ -44,5 +44,29 @@ describe('Home Task #5', () => {
         await SoonToBePublishedPage.getTextOfHeader(); //У друці, Серія: Гаррі Поттеp
 
     });
+
+it('Scrolldown into market page ', async () => {
+
+        await browser.url('https://store.ababahalamaha.com.ua/')
+
+        const buttomOfPage  = await $('//div[@class="col-12 copyright center"]')
+        await browser.pause(2000)
+        await buttomOfPage.scrollIntoView();
+        await browser.pause(2000)
+        await browser.saveScreenshot('ScreenshotFromTest.png');
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 
 });
