@@ -1,7 +1,7 @@
 class DragAndDropPage {
 
-get draggable () {return $ ('.draggable')};
-get droppable() {return $ ('.droppable')};
+get draggable () {return $ ('#column-a')};
+get droppable() {return $ ('#column-b')};
 
 
 async dragAndDrop () {

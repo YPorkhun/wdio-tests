@@ -12,6 +12,14 @@ async clickOnSecondCheckbox () {
     await this.checkbox_2.click()
 }
 
+async logCheckboxStates() {
+    const isFirstChecked = await this.checkbox_1.isSelected();
+    const isSecondChecked = await this.checkbox_2.isSelected();
+
+    console.log(`Checkbox 1 is selected: ${isFirstChecked}`);
+    console.log(`Checkbox 2 is selected: ${isSecondChecked}`);
+    }
+
 }
 
 export default new CheckboxesPage ()
